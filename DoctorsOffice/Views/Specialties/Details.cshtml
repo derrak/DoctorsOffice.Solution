@@ -1,0 +1,28 @@
+@{
+  Layout = "_Layout";
+}
+
+@model DoctorsOffice.Models.Specialty;
+
+<h2>Specialty Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)</h3>
+
+@if(@Model.JoinEntities.Count == 0)
+{
+  <p>This Specialty does not contain any Doctors</p>
+}
+else
+{
+  <h4>Doctors the Specialty contains:</h4>
+  <ul>
+  @foreach(var join in Model.JoinEntities)
+  {
+    <li>@join.Doctor.Name</li>
+  }
+  </ul>
+}
+
+<p>@Html.ActionLink("Back to Specialties", "Index")</p>
+<p>@Html.ActionLink("Edit Specialty", "Edit", new { id = Model.SpecialtyId })</p>
+<p>@Html.ActionLink("Delete Specialty", "Delete", new { id = Model.SpecialtyId })</p>
