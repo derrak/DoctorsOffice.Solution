@@ -14,7 +14,20 @@
 
 @foreach (Patient patient in Model)
 {
-  <li>@Html.ActionLink($"{patient.Name}", "Details", new { id = patient.PatientId })</li>
+  @if (patient.Completed == false)
+  {
+    <li>@Html.ActionLink($"{patient.Name}", "Details", new { id = patient.PatientId }) | Not Visited
+    @using (Html.BeginForm("MarkCompleted", "Patients"))
+      {
+        @Html.Hidden("PatientId", @patient.PatientId)
+        <input type="submit" value="Mark @patient.Name as Visited"/>
+      }
+    </li>
+  }
+  else
+  {
+    <li>@Html.ActionLink($"{patient.Name}", "Details", new { id = patient.PatientId }) | Visited </li>
+  }
 }
 
 <p>@Html.ActionLink("Add new Patient", "Create")</p>

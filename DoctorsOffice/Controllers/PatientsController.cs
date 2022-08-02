@@ -52,7 +52,7 @@ namespace DoctorsOffice.Controllers
     public ActionResult Edit(int id)
     {
       var thisPatient = _db.Patients.FirstOrDefault(patient => patient.PatientId == id);
-      ViewBag.PatientId = new SelectList(_db.Doctors, "DoctorId", "Name");
+      ViewBag.DoctorId = new SelectList(_db.Doctors, "DoctorId", "Name");
       return View(thisPatient);
     }
 
@@ -106,6 +106,15 @@ namespace DoctorsOffice.Controllers
     {
       var joinEntry = _db.DoctorPatient.FirstOrDefault(entry => entry.DoctorPatientId == joinId);
       _db.DoctorPatient.Remove(joinEntry);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+
+    [HttpPost]
+    public ActionResult MarkCompleted(int PatientId)
+    {
+      var thisPatient = _db.Patients.FirstOrDefault(patient => patient.PatientId == PatientId);
+      thisPatient.Completed = true;
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
