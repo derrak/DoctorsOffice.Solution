@@ -3,14 +3,16 @@ using System;
 using DoctorsOffice.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ToDoList.Migrations
 {
     [DbContext(typeof(DoctorsOfficeContext))]
-    partial class DoctorsOfficeContextModelSnapshot : ModelSnapshot
+    [Migration("20220802204911_patientCheck")]
+    partial class patientCheck
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

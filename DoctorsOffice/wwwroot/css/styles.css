@@ -1,9 +1,75 @@
+div#header {
+	padding: 40px;
+	text-align: center;
+	background-color: rgb(255, 255, 255, .25);
+	color: rgb(0, 0, 0);
+	backdrop-filter: blur(20px);
+	margin: 30px;
+	border-radius: 20px;
+}
+
+div#title {
+	margin-bottom: 20px;
+}
+
+.text-span {
+	color: rgb(0, 0, 0, .8);
+	justify-content: center;
+	display: flex;
+	gap: 2rem;
+	font-family: "Arvo";
+}
+
 div#footer {
-	position:fixed;
-	bottom:0px;
-	left:0px;
-	width:100%;
-	color:#CCC;
-	background:#333;
-	padding:8px;
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+	padding: 8px;
+	background-color: rgb(255, 255, 255, .25);
+	color: rgb(0, 0, 0);
+}
+
+a {
+	color: rgb(81, 68, 50);
+}
+
+h1{
+	font-family: "Arvo";
+	font-weight: bold;
+}
+
+h5{
+	font-family: "Lato";
+	font-size: 15px;
+}
+
+
+p{
+	font-family: "Lato";
+}
+
+
+input[type=text] {
+	padding: 5px;
+	margin:10px;
+	background-color: rgb(255, 255, 255, .5);
+	border:1px  rgb(255, 255, 255, .1); 
+	border-radius:10px;
+	font-family:inherit;
+  font-size: inherit;
+}
+/* input[type=password] {
+  // input elements with type="password" attribute
+} */
+
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+	margin: 2em;
+	background-image: linear-gradient(331deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+	background-repeat: no-repeat;
 }
